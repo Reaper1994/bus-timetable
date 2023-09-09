@@ -9,7 +9,7 @@ class Operator extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['operator_code', 'national_operator_code', 'operator_short_name', 'operator_name_on_licence'];
+    protected $fillable = ['operator_code', 'national_operator_code', 'operator_short_name', 'licence_number'];
 
     public function routes()
     {
