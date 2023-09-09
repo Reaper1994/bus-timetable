@@ -11,13 +11,18 @@ class RouteSection extends Model
 
     protected $fillable =  ['route_section_id', 'from_stop_point_reference', 'to_stop_point_reference'];
 
-    public function route()
+    public function routes()
     {
-        return $this->belongsTo(Route::class);
+        return $this->hasMany(Route::class,'route_section_reference', 'route_section_id');
     }
 
-    public function stop()
+    public function fromStopPointReference()
     {
-        return $this->belongsTo(Stop::class);
+        return $this->belongsTo(Stop::class,'from_stop_point_reference', 'atco_code');
+    }
+
+    public function toStopPointReference()
+    {
+        return $this->belongsTo(Stop::class,'to_stop_point_reference', 'atco_code');
     }
 }

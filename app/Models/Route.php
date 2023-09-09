@@ -11,23 +11,13 @@ class Route extends Model
 
     protected $fillable = ['route_id', 'route_description', 'route_section_reference'];
 
-    public function stops()
+    public function journeyPattern()
     {
-        return $this->belongsToMany(Stop::class, 'route_stops');
+        return $this->belongsTo(JourneyPattern::class, 'route_reference', 'route_id');
     }
 
-    public function timetable()
+    public function routeSectionReference()
     {
-        return $this->hasMany(Timetable::class);
-    }
-
-    public function busJourneys()
-    {
-        return $this->hasMany(BusJourney::class);
-    }
-
-    public function journeyPatternSections()
-    {
-        return $this->hasMany(JourneyPatternSection::class);
+        return $this->belongsTo(RouteSection::class,'route_section_reference', 'route_section_id');
     }
 }

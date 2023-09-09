@@ -11,9 +11,12 @@ class Operator extends Model
 
     protected $fillable = ['operator_code', 'national_operator_code', 'operator_short_name', 'licence_number'];
 
-    public function routes()
+    protected $primaryKey = 'operator_code';
+
+    // Define the relationship with the 'services' table
+    public function services()
     {
-        return $this->hasMany(Route::class);
+        return $this->hasMany(Service::class, 'operator_reference', 'operator_code');
     }
     
 }

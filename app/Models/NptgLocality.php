@@ -11,8 +11,11 @@ class NptgLocality extends Model
 
     protected $fillable = ['locality_reference', 'locality_name'];
 
+    protected $primaryKey = 'locality_reference';
+
+    // Define the relationship with the 'stops' table
     public function stops()
     {
-        return $this->hasMany(Stop::class);
+        return $this->hasMany(Stop::class, 'nptg_locality_reference', 'locality_reference');
     }
 }

@@ -11,18 +11,31 @@ class Stop extends Model
 
     protected $fillable = ['atco_code', 'nptg_locality_reference', 'stop_name', 'latitude', 'longitude'];
 
-    public function routes()
+    protected $primaryKey = 'atco_code';
+
+    // inverse of the relationship with the 'nptg_locality_reference' table
+    public function nptgLocalityReference()
     {
-        return $this->belongsToMany(Route::class, 'route_stops');
+        return $this->belongsTo(NptgLocalityReference::class, 'nptg_locality_reference', 'locality_reference');
     }
 
-    public function timetable()
+    public function fromStopPointRouteSections()
     {
-        return $this->hasMany(Timetable::class);
+        return $this->hasMany(RouteSection::class, 'from_stop_point_reference', 'atco_code');
     }
 
-    public function nptgLocality()
+    public function toStopPointRouteSections()
     {
-        return $this->belongsTo(NptgLocality::class);
+        return $this->hasMany(RouteSection::class, 'to_stop_point_reference', 'atco_code');
+    }
+
+    public function fromJourneyPatterSectionRouteSections()
+    {
+        return $this->hasMany(JourneyPatternSection::class, 'from_stop_point_reference', 'atco_code');
+    }
+
+    public function toJourneyPatterSectionRouteSections()
+    {
+        return $this->hasMany(JourneyPatternSection::class, 'to_stop_point_reference', 'atco_code');
     }
 }
