@@ -7,7 +7,13 @@ use App\Models\Stop;
 
 class StopService
 {
-    public function createStop($stopPoints)
+    /**
+     * Create or update stop points in the database based on ATCO code.
+     *
+     * @param object $stopPoints An array of SimpleXMLElement objects representing stop points.
+     * @return void
+     */
+    public function createStop($stopPoints): void
     {
         foreach ($stopPoints as $stopData) {
              Stop::firstOrCreate([

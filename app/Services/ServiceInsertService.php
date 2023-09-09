@@ -7,6 +7,13 @@ use App\Models\Service;
 
 class ServiceInsertService
 {
+    /**
+     * Insert a new service data  into the database.
+     *
+     * @param \SimpleXMLElement $serviceData
+     *
+     * @return \App\Models\Service
+     */
     public function insert($serviceData)
     {
         $service = new Service();

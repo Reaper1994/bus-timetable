@@ -7,7 +7,13 @@ use App\Models\VehicleJourney;
 
 class VehicleJourneyService
 {
-    public function insertVehicleJourney($vehicleJourneys)
+    /**
+     * Insert vehicle journeys into the database.
+     *
+     * @param object $vehicleJourneys An array of SimpleXMLElement objects representing vehicle journeys.
+     * @return void
+     */
+    public function insertVehicleJourney($vehicleJourneys): void
     {
         // Map data for VehicleJourneys
         foreach ($vehicleJourneys as $journeyData) {
