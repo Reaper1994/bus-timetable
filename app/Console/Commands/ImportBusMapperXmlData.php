@@ -99,8 +99,8 @@ class ImportBusMapperXmlData extends Command
             $this->operatorService->insertOperators($xmlData->Operators->Operator);
 
              // Call the journey pattern service method passing the necessary data
-            $this->journeyPatternSectionService->insertJourneyPatternSections($xmlData->JourneyPatternSections->JourneyPatternSection->JourneyPatternTimingLink);
-              
+            $this->journeyPatternSectionService->insertJourneyPatternSections($xmlData->JourneyPatternSections->JourneyPatternSection);
+            
              // Call the sevice VehicleJourney Patterns method and passs the necessary data
             $this->seviceVehicleJourneyPatternService->insertServicesJourneyPattern($xmlData->Services->Service);
 
