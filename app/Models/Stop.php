@@ -9,7 +9,7 @@ class Stop extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['atco_code', 'nptg_locality_refernce', 'stop_name', 'latitude', 'longitude'];
+    protected $fillable = ['atco_code', 'nptg_locality_reference', 'stop_name', 'latitude', 'longitude'];
 
     public function routes()
     {

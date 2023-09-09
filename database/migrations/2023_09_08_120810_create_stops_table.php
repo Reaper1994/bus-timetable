@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('stops', function (Blueprint $table) {
             $table->string('atco_code')->unique()->primary();
-            $table->string('nptg_locality_refernce'); 
-            $table->foreign('nptg_locality_refernce')->references('locality_reference')->on('nptg_localities');
+            $table->string('nptg_locality_reference'); 
+            $table->foreign('nptg_locality_reference')->references('locality_reference')->on('nptg_localities');
             $table->string('stop_name');
             $table->decimal('latitude', 10, 8);
             $table->decimal('longitude', 11, 8);
-            $table->index('nptg_locality_refernce');
+            $table->index('nptg_locality_reference');
             $table->timestamps();
         });
     }
