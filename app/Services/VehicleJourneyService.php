@@ -14,9 +14,9 @@ class VehicleJourneyService
 
             $journey = new VehicleJourney();
             $journey->private_code = (string) $journeyData->PrivateCode;
-            $journey->ticket_machine_service_code = (int) $journeyData->TicketMachine->TicketMachineServiceCode;
-            $journey->jouney_code = (int) $journeyData->TicketMachine->JourneyCode;
-            $journey->duration = (int) $journeyData->LayoverPoint->Duration;
+            $journey->ticket_machine_service_code = (int) $journeyData->Operational->TicketMachine->TicketMachineServiceCode;
+            $journey->jouney_code = (int) $journeyData->Operational->TicketMachine->JourneyCode;
+            $journey->duration = (string) $journeyData->LayoverPoint->Duration;
             $journey->layover_point = (string) $journeyData->LayoverPoint->Name;
             $journey->latitude = (float) $journeyData->LayoverPoint->Location?->Latitude;
             $journey->longitude = (float) $journeyData->LayoverPoint->Location?->Longitude;
