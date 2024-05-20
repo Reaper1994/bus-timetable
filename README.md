@@ -19,7 +19,7 @@ To import XML data, run the following command:
 php artisan import-bus-mapper-xml-data {file}
 ```
 
-Where `{file}` is the path to the XML file. some example files are used in the public directory
+Where `{file}` is the path to the XML file. some example files are located in the public directory
 
 eg
 ```
